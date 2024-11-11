@@ -13,7 +13,7 @@ model = dict(data_preprocessor=data_preprocessor,
              decode_head=dict(num_classes=2,
                               out_channels = 2,
                               loss_decode=[    
-                              dict(type='CrossEntropyLoss', loss_name='loss_ce', loss_weight=1, use_sigmoid=False, avg_non_ignore=True), #estas foram as losses utilizadas pelo autor. Mas ele utilizou avg_non_ignore=True
+                              dict(type='CrossEntropyLoss', loss_name='loss_ce', loss_weight=1, use_sigmoid=False, avg_non_ignore=True),
                               dict(type='DiceLoss', loss_name='loss_dice', loss_weight=10) # Sobre a utilização destes parametros: https://mmsegmentation.readthedocs.io/en/main/notes/faq.html 
                                       ]))
     

@@ -1,11 +1,12 @@
 # optimizer
 max_iters = 160000
 val_interval = 16000
+checkpoints_interval = 16000
 
 optimizer = dict(type='SGD', # Type of optimizers, refer to https://github.com/open-mmlab/mmengine/blob/main/mmengine/optim/optimizer/default_constructor.py for more details
-                 lr=0.0001, # Learning rate of optimizers #0.01
+                 lr=0.01, # Learning rate of optimizers #0.01
                  momentum=0.9, # Momentum
-                 weight_decay=0.1) # Weight decay of SGD #0.0005
+                 weight_decay=0.0005) # Weight decay of SGD #0.0005
 
 optim_wrapper = dict(type='OptimWrapper', # Optimizer wrapper provides a common interface for updating parameters.
                      optimizer=optimizer, # Optimizer used to update model parameters.
@@ -29,5 +30,5 @@ default_hooks = dict(
     timer=dict(type='IterTimerHook'), # Log the time spent during iteration.
     logger=dict(type='LoggerHook', interval=50, log_metric_by_epoch=False), # Collect and write logs from different components of ``Runner``.
     param_scheduler=dict(type='ParamSchedulerHook'), # update some hyper-parameters in optimizer, e.g., learning rate.
-    checkpoint=dict(type='CheckpointHook', by_epoch=False, interval=val_interval), # Save checkpoints periodically.
+    checkpoint=dict(type='CheckpointHook', by_epoch=False, interval=checkpoints_interval), # Save checkpoints periodically.
     sampler_seed=dict(type='DistSamplerSeedHook')) # Data-loading sampler for distributed training.

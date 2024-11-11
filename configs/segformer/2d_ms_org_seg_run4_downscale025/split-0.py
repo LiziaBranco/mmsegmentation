@@ -47,5 +47,5 @@ test_dataloader_dataloader = dict(
         data_prefix=dict(
             img_path='images/split0_test', seg_map_path='masks/split0_test')))
 
-load_from = 'robust_monitoring_organoid_growth/work_dirs/split-0/iter_96000.pth'  
-resume = True
+#load_from = 'robust_monitoring_organoid_growth/work_dirs/split-0/iter_96000.pth'  
+#resume = True
